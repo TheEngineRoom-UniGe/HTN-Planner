@@ -1,8 +1,0 @@
-TRAJECTORY PLANNING SCRIPTS for the Glove Validation Experiment:
-
-HOW TO RUN:
--run roslaunch baxter_moveit main.launch
--cd /Desktop/catkin_ws/src/baxter_moveit/scripts
--run ./trajectoryPlanner to plan the trajectories (you can choose how many trajectories using -t parameter and the output file using -f parameter)
--run ./trajectoryReader to read and send the trajectories to the robot (you can choose the output file using -f parameter)
--run ./trajectoryReader to read and send the trajectories to the robot (you can choose the output file using -f parameter, you can choose the sleeping time between trajectories using -t parameter)

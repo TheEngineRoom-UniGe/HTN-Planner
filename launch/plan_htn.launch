@@ -3,7 +3,7 @@
 
   <arg name="port1"           	     default="/dev/ttyACM0" />
   <arg name="save"           	     	     default="False" />
-  <arg name="experiment_ID"          	     default="0" />
+  <arg name="experiment_ID"          	     default="trial2" />
   <arg name="base_saving_path"              default="/externalSSD/htn_experiment"/>
   
     
@@ -12,13 +12,13 @@
   <node name="joint_action_server_right" pkg="baxter_interface" type="joint_trajectory_action_server.py" args="--limb right --mode velocity" required="true" output="log"/>
   <node name="joint_action_server_left" pkg="baxter_interface" type="joint_trajectory_action_server.py" args="--limb left --mode velocity" required="true" output="log"/>
   
-  <!--<node name="hand_obstacle" pkg="baxter_moveit" type="obstacle_handler.py" output="screen" />-->
-  <include file="$(find baxter_moveit)/launch/moveit_config.launch" />  
+  <!--<node name="hand_obstacle" pkg="htn_planner" type="obstacle_handler.py" output="screen" />-->
+  <include file="$(find htn_planner)/launch/moveit_config.launch" />  
 
   
   <!-- Run the Joint Trajectory Action -->
-  <node name="planner_htn" pkg="baxter_moveit" type="planner.py" args="--limb right" output="screen" />
-  <node name="joint_states_service" pkg="baxter_moveit" type="joint_states_service.py" output="screen" />
+  <node name="planner_htn" pkg="htn_planner" type="planner.py" args="--limb right" output="screen" />
+  <node name="joint_states_service" pkg="htn_planner" type="joint_states_service.py" output="screen" />
   
   
 <group ns="experiment">
@@ -31,17 +31,17 @@
   <!-- Camera Listener -->
   <node name="baxter_camera_listener" pkg="baxter_camera_listener" type="handoverDetector.py" output="screen" />  
   <!-- Camera Listener -->
-  <node name="baxter_camera_aruco" pkg="baxter_moveit" type="baxter_camera_aruco.py" output="screen" /> 
+  <node name="baxter_camera_aruco" pkg="htn_planner" type="baxter_camera_aruco.py" output="screen" /> 
   <!-- ARUCO Listener -->
-  <node name="zed2_driver" pkg="baxter_moveit" type="zed2_driver.py" output="screen" />  
-  <node name="zed2_save_images" pkg="baxter_moveit" type="zed2_save_images.py" output="screen" required="true">
+  <node name="zed2_driver" pkg="htn_planner" type="zed2_driver.py" output="screen" />  
+  <node name="zed2_save_images" pkg="htn_planner" type="zed2_save_images.py" output="screen" required="true">
   	<param name="save"                	     value="$(arg save)"/>
   	<param name="experiment_ID"                value="$(arg experiment_ID)"/>
   	<param name="base_saving_path"                value="$(arg base_saving_path)"/>
   </node>  
-  <node name="zed2_pose_estimation" pkg="baxter_moveit" type="zed2_pose_estimation.py" output="screen" />  
+  <node name="zed2_pose_estimation" pkg="htn_planner" type="zed2_pose_estimation.py" output="screen" />  
   
-  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find baxter_moveit)/config/rviz_planning_scene.rviz" required="true" />
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find htn_planner)/config/rviz_planning_scene.rviz" required="true" />
 </group>
 
 

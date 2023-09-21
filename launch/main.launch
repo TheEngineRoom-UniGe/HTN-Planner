@@ -1,6 +1,0 @@
-<?xml version="1.0"?>
-<launch>     
-  <node name="joint_states_service" pkg="baxter_moveit" type="joint_states_service.py" output="screen" />
-  <node name="hand_obstacle" pkg="baxter_moveit" type="obstacle_handler.py" output="screen" />
-  <include file="$(find baxter_moveit)/launch/moveit_config.launch" />    
-</launch>

@@ -12,13 +12,10 @@ state.obj_properties = {'screwdriver': None, 'screwdriver2': None, 'box': state.
                          'box2': state.box_empty['box2'], 'box3': state.box_empty['box3']}
 state.active_arm = {'human': None, 'robot': None}
 
-# state.markerID2obj = {'0': 'brick1', '10': 'brick2', '100': 'brick3', '20': 'brick4', '200': 'brick5', '2': 'brick6', '4': 'brick7'}
 state.markerID2obj = {'0': 'brick1', '20': 'brick2', '1': 'brick3', '200': 'brick4', '100': 'brick5', '10': 'brick6', 
                       '2': 'brick7', '4': 'brick8', '40': 'brick9'}
 state.obj2markerID = inv_map = {v: k for k, v in state.markerID2obj.items()}
-# state.obj2pose = {'brick1': pose}
 
-# for deliver_objects method
 state.available_objects = []
 state.selected_object = None
 

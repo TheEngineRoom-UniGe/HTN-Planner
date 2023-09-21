@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.0.2)
-project(baxter_moveit)
+project(htn_planner)
 
 find_package(catkin REQUIRED COMPONENTS
   rospy
@@ -30,7 +30,7 @@ generate_messages(
 catkin_package()
 
 catkin_install_python(PROGRAMS
-  scripts/listener_ee.py
+
   scripts/joint_states_service.py
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )

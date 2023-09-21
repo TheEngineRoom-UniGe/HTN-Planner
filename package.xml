@@ -1,11 +1,11 @@
 <?xml version="1.0"?>
 <package format="2">
-  <name>baxter_moveit</name>
+  <name>htn_planner</name>
   <version>0.0.0</version>
-  <description>The baxter_moveit package</description>
+  <description>The htn_planner package</description>
 
 
-  <maintainer email="simone.maccio@edu.unige.it">Simone Macciò</maintainer>
+  <maintainer email="valerio.belcamino@edu.unige.it">Simone Macciò</maintainer>
 
   <license>Apache 2.0</license>
 

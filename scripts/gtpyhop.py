@@ -17,7 +17,7 @@ of the modules in the Examples directory.
 # from IPython import embed
 # from IPython.terminal.debugger import set_trace
 
-import copy, sys, pprint, re
+import copy, sys, pprint, re, time
 
 ################################################################################
 # How much information to print while the program is running
@@ -881,6 +881,7 @@ def seek_plan(state, todo_list, plan, depth):
     if verbose >= 2: 
         todo_string = '[' + ', '.join([_item_to_string(x) for x in todo_list]) + ']'
         print(f'depth {depth} todo_list ' + todo_string)
+        f.write(f'### {time.time()} - {_item_to_string(todo_list[0])}\n')
         f.write(f'depth {depth} todo_list ' + todo_string + '\n')
     if todo_list == []:
         if verbose >= 3:

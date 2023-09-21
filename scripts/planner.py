@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 
+import sys
 import gtpyhop
 import rospy
 from joint_trajectory_client import TrajectoryClient
@@ -8,14 +9,13 @@ from baxter_interface import CHECK_VERSION
 import argparse
 from zed2_pose_estimation import ArucoDetection
 from geometry_msgs.msg import Pose
-
 domain = gtpyhop.Domain('handover')
 from methods.methods import *
 from actions.actions import *
 from state.rigid import rigid
 
+sys.setrecursionlimit(3000)
 def main():
-
     gtpyhop.current_domain = domain
 
     from state.state import state
@@ -57,8 +57,8 @@ def main():
     # time.sleep(3)
     client.traj_p.open_gripper('left')
     client.traj_p.open_gripper('right')
-    # client.traj_p.close_gripper('left')
-    # client.traj_p.close_gripper('right')
+    client.traj_p.close_gripper('left')
+    client.traj_p.close_gripper('right')
     # client.transfer(rigid.locations['table'], 'right')
     # exit()
     # wait_idle(state1, client)

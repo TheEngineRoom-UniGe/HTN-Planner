@@ -156,11 +156,11 @@ class TrajectoryClient():
             simple_traj, fract = self.traj_p.plan_cartesian_trajectory(temp_pose, side)
             
             print('fraction', fract)
-            if fract > 0.95:
+            if fract > 0.80:
                 if first:
-                    self.execute_trajectory(simple_traj, side,3.5)
+                    self.execute_trajectory(simple_traj, side,2.5)
                 else:
-                    self.execute_trajectory(simple_traj, side,4.5)
+                    self.execute_trajectory(simple_traj, side,3.0)
             else:
                 rospy.logerr(fract)
                 failures = True
