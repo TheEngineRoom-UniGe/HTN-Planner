@@ -1,0 +1,6 @@
+[submodule "vision_perception"]
+	path = vision_perception
+	url = https://github.com/TheEngineRoom-UniGe/vision_perception
+[submodule "tactile_perception"]
+	path = tactile_perception
+	url = https://github.com/TheEngineRoom-UniGe/Melexis_Tactile_Sensor
